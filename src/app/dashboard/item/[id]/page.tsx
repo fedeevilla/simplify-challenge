@@ -28,6 +28,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (data.id) {
     const { name, brand, description, image } = data;
     const metaTitle = `${name} | ${brand}`;
+
     return {
       title: metaTitle,
       description,
