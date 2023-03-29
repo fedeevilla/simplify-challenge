@@ -25,16 +25,16 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const response = await fetch(
     `${process.env.BASE_URL}/api/item/${params?.id}`
   );
-  const { name, brand, about, image, id } = await response.json();
+  const { name, brand, description, image, id } = await response.json();
 
   const metaTitle = id ? `${name} | ${brand}` : "Item not found";
 
   return {
     title: metaTitle,
-    description: about,
+    description,
     openGraph: {
       title: metaTitle,
-      description: about,
+      description,
       url: `${process.env.BASE_URL}/dashboard/item/${params?.id}`,
       siteName: metadata.title,
       images: [
