@@ -28,7 +28,7 @@ const SideBar = ({ children }: Props) => {
                     href={href}
                   >
                     <FontAwesomeIcon
-                      className="w-4 text-[#5E6673]"
+                      className="w-4 text-[#5E6673] text-xs"
                       icon={icon as IconProp}
                     />
                     {label}

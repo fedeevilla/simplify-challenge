@@ -22,37 +22,42 @@ async function getItemDetails(id: string): Promise<Item> {
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const response = await fetch(
-    `${process.env.BASE_URL}/api/item/${params?.id}`
-  );
-  const { name, brand, description, image, id } = await response.json();
+  const response = await fetch(`${process.env.BASE_URL}/api/item/${params.id}`);
+  const data = await response.json();
 
-  const metaTitle = id ? `${name} | ${brand}` : "Item not found";
-
-  return {
-    title: metaTitle,
-    description,
-    openGraph: {
+  if (data.id) {
+    const { name, brand, description, image } = data;
+    const metaTitle = `${name} | ${brand}`;
+    return {
       title: metaTitle,
       description,
-      url: `${process.env.BASE_URL}/dashboard/item/${params?.id}`,
-      siteName: metadata.title,
-      images: [
-        {
-          url: image,
-          width: 800,
-          height: 600,
-        },
-        {
-          url: image,
-          width: 1800,
-          height: 1600,
-        },
-      ],
-      locale: "en-US",
-      type: "website",
-    },
-  };
+      openGraph: {
+        title: metaTitle,
+        description,
+        url: `${process.env.BASE_URL}/dashboard/item/${params?.id}`,
+        siteName: metadata.title,
+        images: [
+          {
+            url: image,
+            width: 800,
+            height: 600,
+          },
+          {
+            url: image,
+            width: 1800,
+            height: 1600,
+          },
+        ],
+        locale: "en-US",
+        type: "website",
+      },
+    };
+  } else {
+    return {
+      title: "Item not found",
+      description: "Item not found",
+    };
+  }
 }
 
 export default async function ItemPage({ params }: Props) {
