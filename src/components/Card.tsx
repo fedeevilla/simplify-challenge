@@ -41,10 +41,7 @@ const Card = ({ item }: Props) => {
       </div>
       <div className="flex justify-around w-full p-4 mt-4 border-t border-t-[#F3F4F6]">
         <button className="text-base font-normal text-red-500">Remove</button>
-        <Link
-          className="text-base font-normal text-black"
-          href={`/dashboard/item/${id}`}
-        >
+        <Link className="text-base font-normal text-black" href={`/item/${id}`}>
           View
         </Link>
       </div>

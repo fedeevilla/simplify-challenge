@@ -35,7 +35,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       openGraph: {
         title: metaTitle,
         description,
-        url: `${process.env.BASE_URL}/dashboard/item/${params?.id}`,
+        url: `${process.env.BASE_URL}/item/${params?.id}`,
         siteName: metadata.title,
         images: [
           {

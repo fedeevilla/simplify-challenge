@@ -44,7 +44,7 @@ const ItemList = ({ items }: Props) => (
                 />
                 <Link
                   className="flex items-center ml-4 font-normal"
-                  href={`/dashboard/item/${id}`}
+                  href={`/item/${id}`}
                 >
                   {name}
                 </Link>
