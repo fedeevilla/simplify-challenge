@@ -8,7 +8,7 @@ interface Props {
   items: Item[];
 }
 const ItemList = ({ items }: Props) => (
-  <table className="w-full text-sm text-left text-gray-500 ">
+  <table className="w-full text-sm text-left text-gray-500">
     <thead className="text-xs text-gray-700 uppercase bg-gray-50">
       <tr>
         <th className="px-6 py-3" scope="col">
@@ -29,7 +29,7 @@ const ItemList = ({ items }: Props) => (
     <tbody>
       {items.map(({ id, name, image, seller, active, price }) => {
         return (
-          <tr key={id} className="bg-white border-b ">
+          <tr key={id} className="bg-white border-b hover:bg-gray-50">
             <th
               className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap "
               scope="row"

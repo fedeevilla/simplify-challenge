@@ -1,7 +1,8 @@
 import { Item } from "@/types";
 import useSWR from "swr";
 
-const fetcher = (url: string) => fetch(url).then((r) => r.json());
+import { fetcher } from "./utils";
+
 const useGetFavorites = () => {
   const { data, isLoading, error } = useSWR<Item[]>("/api/favorites", fetcher);
 
