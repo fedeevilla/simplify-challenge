@@ -1,9 +1,8 @@
-import React from "react";
-
 interface Props {
   title: string;
   description: string;
 }
+
 const Alert = ({ title, description }: Props) => {
   return (
     <div
@@ -23,7 +22,7 @@ const Alert = ({ title, description }: Props) => {
         />
       </svg>
       <div>
-        <span className="font-medium">{title}</span> {description}
+        <span className="mr-1 font-extrabold">{title}</span> {description}
       </div>
     </div>
   );

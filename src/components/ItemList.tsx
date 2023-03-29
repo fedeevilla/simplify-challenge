@@ -50,14 +50,14 @@ const ItemList = ({ items }: Props) => (
                 </Link>
               </div>
             </th>
-            <td className="px-6 py-4">{seller}</td>
+            <td className="px-6 py-4 font-extrabold">{seller}</td>
             <td className="px-6 py-4">
               <Badge
                 label={active ? "Active" : "Disabled"}
                 type={active ? "success" : "error"}
               />
             </td>
-            <td className="px-6 py-4">
+            <td className="px-6 py-4 font-extrabold">
               {price.toLocaleString("en-US", {
                 style: "currency",
                 currency: "USD",

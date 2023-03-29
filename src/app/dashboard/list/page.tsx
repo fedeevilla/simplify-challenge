@@ -8,7 +8,7 @@ const Dashboard = () => {
   const { data: items, isLoading } = useGetFavorites();
 
   return (
-    <div>
+    <>
       <div className="flex justify-between p-4">
         <div>
           <h1 className="mb-2 text-xl font-medium">Favorites</h1>
@@ -31,7 +31,7 @@ const Dashboard = () => {
           <ItemList items={items} />
         </div>
       )}
-    </div>
+    </>
   );
 };
 

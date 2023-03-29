@@ -9,8 +9,8 @@ import { Metadata } from "next";
 import Image from "next/image";
 
 type Props = {
-  params?: {
-    id?: string;
+  params: {
+    id: string;
   };
 };
 
@@ -67,17 +67,17 @@ export default async function ItemPage({ params }: Props) {
     price,
     active,
     id,
-  } = await getItemDetails(params?.id || "");
+  } = await getItemDetails(params.id);
 
   if (!id)
     return (
       <div className="flex items-center justify-center">
-        <Alert description="Item not found" title="Error" />
+        <Alert description="Item not found!" title="Error:" />
       </div>
     );
 
   return (
-    <div className="m-4 my-6">
+    <div className="w-full m-4 my-6">
       <div className="flex items-center gap-6">
         <Image
           alt={name}
@@ -91,7 +91,7 @@ export default async function ItemPage({ params }: Props) {
           <p className="text-sm font-normal text-[#707784]">{brand}</p>
         </div>
       </div>
-      <div className="flex w-5/6 gap-8 mt-8">
+      <div className="flex w-3/4 gap-8 mt-8">
         <div className="w-2/3 bg-white rounded-lg shadow-lg">
           <div className="p-6 border-b border-b-gray-200">
             <h1 className="mb-1 text-lg font-semibold">Product Information</h1>
@@ -108,7 +108,6 @@ export default async function ItemPage({ params }: Props) {
               <ItemDescription text={color} title="Color" />
               <ItemDescription text={category} title="Category" />
             </div>
-
             <ItemDescription
               className="w-full"
               text={description}
